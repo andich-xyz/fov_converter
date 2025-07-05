@@ -1,0 +1,232 @@
+[gd_scene load_steps=12 format=3 uid="uid://b22bu38k7q2su"]
+
+[ext_resource type="FontFile" uid="uid://dwjnsl4h0cqq" path="res://Fonts/INTER.TTC" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://c8tb2calye5ub" path="res://fov_converter.gd" id="1_ig7tw"]
+
+[sub_resource type="FontVariation" id="FontVariation_0xm2m"]
+base_font = ExtResource("1_1bvp3")
+variation_embolden = 0.77
+spacing_glyph = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ig7tw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.611557, 0.75095, 0.351171, 1)
+border_width_bottom = 5
+border_color = Color(0.288501, 0.36763, 0.0865081, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.58469, 0.72038, 0.329345, 1)
+border_width_bottom = 5
+border_color = Color(0.368781, 0.466597, 0.118492, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
+bg_color = Color(0.527515, 0.653789, 0.287071, 1)
+border_width_bottom = 5
+border_color = Color(0.288501, 0.36763, 0.0865081, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.548569, 0.690887, 0.223215, 1)
+border_width_bottom = 5
+border_color = Color(0.288501, 0.36763, 0.0865081, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0.37843, 0.426904, 0.123192, 0.227451)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_0xm2m"]
+default_font = ExtResource("1_1bvp3")
+default_font_size = 25
+Button/fonts/font = SubResource("FontVariation_0xm2m")
+Button/styles/focus = SubResource("StyleBoxEmpty_ig7tw")
+Button/styles/hover = SubResource("StyleBoxFlat_0xm2m")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_h2yge")
+Button/styles/normal = SubResource("StyleBoxFlat_ig7tw")
+Button/styles/pressed = SubResource("StyleBoxFlat_1bvp3")
+HBoxContainer/constants/separation = 114
+MarginContainer/constants/margin_bottom = 3
+MarginContainer/constants/margin_left = 3
+MarginContainer/constants/margin_right = 3
+MarginContainer/constants/margin_top = 3
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lquwl")
+VBoxContainer/constants/separation = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xm2m"]
+font_size = 19
+font_color = Color(1, 1, 1, 0.486275)
+
+[node name="main" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0xm2m")
+script = ExtResource("1_ig7tw")
+
+[node name="aspect" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -134.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="aspect"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="aspect/VBoxContainer"]
+layout_mode = 2
+text = "Aspect Ratio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="aspect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="aspect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="width_input" type="LineEdit" parent="aspect/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "16"
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="aspect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="height_input" type="LineEdit" parent="aspect/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "9"
+alignment = 1
+
+[node name="fov" type="HBoxContainer" parent="aspect"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="aspect/fov"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="aspect/fov/HBoxContainer"]
+layout_mode = 2
+text = "Vertical"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="aspect/fov/HBoxContainer"]
+layout_mode = 2
+text = "Godot"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="aspect/fov/HBoxContainer"]
+layout_mode = 2
+
+[node name="vfov_input" type="SpinBox" parent="aspect/fov/HBoxContainer/PanelContainer"]
+layout_mode = 2
+max_value = 180.0
+step = 0.1
+value = 60.0
+alignment = 1
+suffix = "°"
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="aspect/fov/HBoxContainer"]
+layout_mode = 2
+
+[node name="vfov_button" type="Button" parent="aspect/fov/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "COPY"
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="aspect/fov"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="aspect/fov/HBoxContainer2"]
+layout_mode = 2
+text = "Horizontal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="aspect/fov/HBoxContainer2"]
+layout_mode = 2
+text = "Blender"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="aspect/fov/HBoxContainer2"]
+layout_mode = 2
+
+[node name="hfov_input" type="SpinBox" parent="aspect/fov/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+max_value = 180.0
+step = 0.1
+value = 91.5
+alignment = 1
+suffix = "°"
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="aspect/fov/HBoxContainer2"]
+layout_mode = 2
+
+[node name="hvof_button" type="Button" parent="aspect/fov/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "COPY"
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="text_changed" from="aspect/VBoxContainer/HBoxContainer/PanelContainer/width_input" to="." method="_on_width_input_text_changed"]
+[connection signal="text_changed" from="aspect/VBoxContainer/HBoxContainer/PanelContainer2/height_input" to="." method="_on_height_input_text_changed"]
+[connection signal="value_changed" from="aspect/fov/HBoxContainer/PanelContainer/vfov_input" to="." method="_on_vfov_input_value_changed"]
+[connection signal="button_up" from="aspect/fov/HBoxContainer/MarginContainer/vfov_button" to="." method="_on_vfov_button_up"]
+[connection signal="value_changed" from="aspect/fov/HBoxContainer2/PanelContainer/hfov_input" to="." method="_on_hfov_input_value_changed"]
+[connection signal="button_up" from="aspect/fov/HBoxContainer2/MarginContainer/hvof_button" to="." method="_on_hvof_button_up"]
